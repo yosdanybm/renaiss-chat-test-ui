@@ -1,0 +1,27 @@
+.card-system {
+    width: 564px;
+    text-align: left;
+    font-family: 'General Sans' !important;
+}
+
+.ant-typography.card-system-title {
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: var(--slate-800, #1E293B);
+    margin: 0px;
+}
+
+.ant-typography.card-system-subtitle {
+    color: #64748B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    margin-top: 5px !important;
+    margin-bottom: 33px;
+}
+
+.card-input {
+    margin-bottom: 25px;
+}
