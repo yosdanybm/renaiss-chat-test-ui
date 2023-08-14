@@ -1,0 +1,98 @@
+.card-history {
+    width: 564px;
+    text-align: left;
+    font-family: 'General Sans' !important;
+}
+
+.card-history .ant-card-body {
+    padding: 18px 0px 18px 18px;
+}
+
+.ant-typography.card-title {
+    color: var(--slate-800, #1E293B);
+    /* font-family: General Sans; */
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.ant-typography.card-subtitle {
+    color: #64748B;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    margin-top: 5px !important;
+    margin-bottom: 33px;
+}
+
+.card-input {
+    margin-bottom: 25px;
+}
+
+.ant-list-item.list-item-history {
+    border: none !important;
+    padding: 13px 0px 13px 19px;
+}
+
+.icon-item-history {
+    font-size: 16px;
+    color: transparent;
+    margin-right: 4px;
+}
+
+.list-item-history.selected {
+    background: rgba(255, 237, 213, 0.50);
+    /* cursor: pointer; */
+}
+
+.avatar-item-history {
+    font-size: 20px;
+    background: #FDBA74;
+}
+
+.description-item-history {
+    color: var(--slate-400, #94A3B8);
+    /* font-family: General Sans; */
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.26px;
+}
+
+
+.ant-list-item-meta-title {
+    margin: 0px !important;
+}
+
+.icon-item-action {
+    font-size: 20px;
+    color: transparent;
+    /* margin-right: -20px; */
+    margin: 0px;
+}
+
+.list-item-history .ant-list-item-action-split {
+    display: none !important;
+}
+
+#scrollableDiv::-webkit-scrollbar {
+    width: 2px !important;
+}
+
+#scrollableDiv::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+}
+
+#scrollableDiv::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+#scrollableDiv::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
