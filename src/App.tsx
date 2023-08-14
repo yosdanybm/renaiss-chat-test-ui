@@ -10,16 +10,25 @@ import { themeCustom } from './theme/theme';
 import Layout from './layout/Layout';
 import Home from './modules/home/container/Home';
 import './App.css'
+import { Route, Routes } from 'react-router-dom';
+import Welcome from './modules/welcome/container/Welcome';
 
 dayjs.locale('es');
 dayjs.extend(utc);
 
-const App = () => (
-  <ConfigProvider theme={themeCustom} locale={esES}>
-    <Layout>
-      <Home />
-    </Layout>
-  </ConfigProvider>
-)
+const App = () => {
+
+  return (
+    <ConfigProvider theme={themeCustom} locale={esES}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index  element={<Welcome />} />
+          <Route path="home" element={<Home />} />
+          <Route path="*" element={<Welcome />} />
+        </Route>
+      </Routes>
+    </ConfigProvider>
+  )
+};
 
 export default App

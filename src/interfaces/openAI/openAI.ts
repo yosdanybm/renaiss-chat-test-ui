@@ -1,4 +1,4 @@
-export type GPT35Model = 'gpt-3.5-turbo' | 'gpt-3.5-turbo-0301';
+export type GPT35Model = 'gpt-3.5-turbo' | 'gpt-3.5-turbo-0301' | string;
 
 export type OpenAIChatRole = 'user' | 'assistant' | 'system' | '';
 
@@ -27,4 +27,12 @@ export interface ChatType {
 export interface ChatState {
   history: ChatType[];
   conversation: OpenAIChatMessage[];
+  model: Model;
+  temperature: number;
+}
+
+export interface UserState {
+  username: string;
+  hiddenSidebar: boolean;
+  showSettingDrawer: boolean;
 }

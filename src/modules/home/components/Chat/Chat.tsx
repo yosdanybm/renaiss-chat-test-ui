@@ -8,17 +8,17 @@ import { ReactComponent as SendSvg } from "../../../../assets/icons/Send.svg";
 import { ReactComponent as AISvg } from "../../../../assets/icons/ai.svg";
 import './chat.css'
 import { useAppState, useAppDispatch } from '../../../../redux/store';
-import { useAskQuestionOpenAI } from '../../../../common/hooks/useAskQuestionOpenAI';
+import { useAskQuestionOpenAI } from '../../hooks/useAskQuestionOpenAI';
 import { OpenAIChatMessage } from '../../../../interfaces/openAI/openAI';
 import { useEffect } from 'react';
-import { CodeBlock } from '../../../../common/components/Header/CodeBlock/CodeBlock';
+import { CodeBlock } from '../../../../common/components/CodeBlock/CodeBlock';
 import dayjs from 'dayjs';
 import { updateConversation, updateHistory } from '../../../../redux/chatSlice';
 
 const { Title } = Typography;
 
 const Chat: React.FC = () => {
-    const { user: { hiddenSidebar }, chat: { history, conversation } } = useAppState((state) => state);
+    const { user: { hiddenSidebar, username }, chat: { history, conversation, model } } = useAppState((state) => state);
     const dispatch = useAppDispatch();
     const { question, setQuestion, answer, loading, askQuestion } = useAskQuestionOpenAI();
 
@@ -46,7 +46,7 @@ const Chat: React.FC = () => {
                 content: '',
             };
             dispatch(updateConversation([...conversation, newUserMessage, newAssistantMessage]));
-            askQuestion('gpt-3.5-turbo');
+            askQuestion(model);
             setQuestion('');
             // Update history
             if (conversation.length === 0) {
@@ -148,7 +148,7 @@ const Chat: React.FC = () => {
                                 <>
                                     <span className="username-message"
                                         style={{ color: message.role === 'user' ? '#10B981' : 'var(--color-primary)' }}>
-                                        {message.role === 'user' ? 'Ana Clara' : 'OdamaChat'}
+                                        {message.role === 'user' ? username : 'OdamaChat'}
                                     </span>
                                     <span className="time-message">{dayjs().format('h:mm a')}</span>
                                     <Divider style={{ margin: '18px 0px 14px 0px' }} />

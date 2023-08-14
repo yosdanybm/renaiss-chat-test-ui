@@ -5,3 +5,8 @@
 .content {
     padding: 32px 33px 0 33px;
 }
+
+.content-home {
+    display: flex;
+    align-self: center;
+}

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { getModelList } from '../../../services/openAI.service';
 
 export const useListModelsOpenAI = () => {
   const [models, setModels] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    axios.get('https://api.openai.com/v1/engines')
+    getModelList()
       .then(response => {
         setModels(response.data.data);
         setLoading(false);

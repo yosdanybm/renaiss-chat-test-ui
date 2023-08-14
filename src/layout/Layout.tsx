@@ -1,21 +1,30 @@
-import React, { ReactNode } from 'react';
+import React, { useEffect } from 'react';
 import { Layout as LayoutAntd } from 'antd';
 import Header from '../common/components/Header/Header';
 import './layout.css'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import SettingDrawer from '../common/components/SettingDrawer/SettingDrawer';
 
 const { Content } = LayoutAntd;
 
-type LayoutProps = {
-    children: ReactNode;
-};
+const Layout: React.FC = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const isHomeRoute = location.pathname === '/home';
 
-const Layout: React.FC<LayoutProps> = ({ children }) => (
-    <LayoutAntd className="layout">
-        <Header />
-        <Content className="content">
-            {children}
-        </Content>
-    </LayoutAntd>
-);
+    useEffect(() => {
+        navigate(sessionStorage.getItem('apikey') ? '/home' : '/')
+    }, [])
+
+    return (
+        <LayoutAntd className="layout">
+            {isHomeRoute && <Header />}
+            <Content className={`content ${!isHomeRoute && 'content-home'}`} >
+                <Outlet />
+            </Content>
+            <SettingDrawer />
+        </LayoutAntd>
+    )
+};
 
 export default Layout;

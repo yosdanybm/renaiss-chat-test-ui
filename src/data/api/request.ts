@@ -5,11 +5,16 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_OPENAI_API_URL,
   headers: {
     common: {
-      Authorization: 'Bearer ' + import.meta.env.VITE_APP_OPENAI_API_KEY,
-      'OpenAI-Organization': import.meta.env.VITE_APP_OPENAI_ORG
+      Authorization: 'Bearer ' + sessionStorage.getItem('apikey'),
     }
   }
 });
+
+export const setApiKeyGlobal = (apikey: string) => {
+  axiosInstance.defaults.headers.common = {
+    'Authorization': 'Bearer ' + apikey,
+  };
+}
 
 export type Response<T = any> = {
   status: number;

@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { UserState } from '../interfaces/openAI/openAI';
 
-const initialState = {
+const initialState: UserState = {
   username: 'User',
   hiddenSidebar: false,
+  showSettingDrawer: false,
 };
 
 export const userSlice = createSlice({
@@ -10,14 +12,16 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
-      // const { username } = action.payload;
       state.username = action.payload;
     },
     changeSidebar: (state, action) => {
       state.hiddenSidebar = action.payload;
     },
+    changeSettingDrawer: (state, action) => {
+      state.showSettingDrawer = action.payload;
+    },
   },
 });
 
-export const { addUser, changeSidebar } = userSlice.actions;
+export const { addUser, changeSidebar, changeSettingDrawer } = userSlice.actions;
 export default userSlice.reducer;

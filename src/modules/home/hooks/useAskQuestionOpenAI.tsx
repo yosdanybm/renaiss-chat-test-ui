@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { requestCompletion } from '../../services/openAI.service';
-import { OpenAIChatMessage, Model } from '../../interfaces/openAI/openAI';
+import { requestCompletion } from '../../../services/openAI.service';
+import { OpenAIChatMessage, Model } from '../../../interfaces/openAI/openAI';
 
 export const useAskQuestionOpenAI = () => {
   const [question, setQuestion] = useState<string>('');

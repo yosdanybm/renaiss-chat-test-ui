@@ -3,7 +3,9 @@ import { ChatState } from '../interfaces/openAI/openAI';
 
 const initialState: ChatState  = {
   history: [],
-  conversation: []
+  conversation: [],
+  model: 'gpt-3.5-turbo',
+  temperature: 0
 };
 
 export const chatSlice = createSlice({
@@ -15,9 +17,15 @@ export const chatSlice = createSlice({
     },
     updateConversation: (state, action) => {
       state.conversation = action.payload;
+    },
+    updateModel: (state, action) => {
+      state.model = action.payload;
+    },
+    updateTemperature: (state, action) => {
+      state.temperature = action.payload;
     }
   },
 });
 
-export const { updateHistory, updateConversation } = chatSlice.actions;
+export const { updateHistory, updateConversation, updateModel, updateTemperature } = chatSlice.actions;
 export default chatSlice.reducer;
